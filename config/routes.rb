@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :articles
   resources :categories, only: [:show] do 
-  resources :articles
-end
-
+    resources :articles
+  end
+  resources :votes 
 end
