@@ -1,0 +1,17 @@
+.vote-link,
+.vote-link:hover,
+.vote-link:visited {
+  right: 20px;
+  bottom: 80px;
+  color: #fff;
+  font-size: 30px;
+  text-decoration: none;
+}
+
+.vote-link:hover {
+  color: #fa6000;
+}
+
+.vote-link.disable {
+  color: rgba(241, 192, 192, 0.5);
+}
