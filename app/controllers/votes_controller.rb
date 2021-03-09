@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 class VotesController < ApplicationController
   def new
     vote = Vote.new(user_id: session[:user_id], article_id: params[:article_id])

@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 class ArticlesController < ApplicationController
   before_action :find_categories, only: %i[new create]
   # before_action :user_loggedin?, only: %i[update create new edit]
