@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :articles
   resources :categories, only: [:show] do 
+    get '/categories/:category_id/articles/:id', to: 'articles#show'
     resources :articles
   end
   resources :votes 
