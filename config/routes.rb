@@ -7,14 +7,14 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
 
-  resources :users, only: [:new, :show, :update, :index, :create, :edit] do
+  resources :users, only: %i[new show update index create edit] do
     resources :articles
   end
 
   resources :articles
-  resources :categories, only: [:show] do 
+  resources :categories, only: [:show] do
     get '/categories/:category_id/articles/:id', to: 'articles#show'
     resources :articles
   end
-  resources :votes 
+  resources :votes
 end
