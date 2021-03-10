@@ -16,5 +16,6 @@ Rails.application.routes.draw do
     get '/categories/:category_id/articles/:id', to: 'articles#show'
     resources :articles
   end
-  resources :votes 
+  resources :votes
+
 end
