@@ -11,8 +11,8 @@ RSpec.feature 'Votes', type: :feature do
 
   let :login do
     visit login_path
-    fill_in 'username', with: 'imran56444'
-    click_on 'Enter'
+    fill_in 'Username', with: 'imran56444'
+    click_button 'Log in'
   end
 
   context 'Votes' do
@@ -24,7 +24,7 @@ RSpec.feature 'Votes', type: :feature do
     end
     it 'Deletes a vote' do
       login
-      visit '/votes/edit?article_id=1'
+      visit edit_vote_path(id: 1)
 
       expect(page).to have_text 'Vote successfully deleted'
     end

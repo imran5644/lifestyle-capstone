@@ -11,27 +11,27 @@ RSpec.feature 'Session' do
 
   let :login do
     visit login_path
-    fill_in 'username', with: 'imran56444'
-    click_button 'Enter'
+    fill_in 'Username', with: 'imran56444'
+    click_button 'Log in'
   end
 
   it 'signs me in with the right credentials' do
     login
-    expect(page).to have_text 'LOG-OUT'
+    expect(page).to have_text 'Log out'
   end
 
   it 'return an error when wrong username was provided' do
     visit login_path
-    fill_in 'username', with: 'imran'
-    click_button 'Enter'
-    expect(page).to have_text 'Username not found'
+    fill_in 'Username', with: 'imran'
+    click_button 'Log in'
+    expect(page).to have_text 'Invalid username combination'
   end
 
   it 'signs me out' do
     login
 
-    first('a', text: 'LOG-OUT').click
+    first('a', text: 'Log out').click
 
-    expect(page).to have_text 'LOG-IN'
+    expect(page).to have_text 'Log in'
   end
 end

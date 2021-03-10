@@ -12,18 +12,18 @@ RSpec.feature 'Users', type: :feature do
 
   let :login do
     visit login_path
-    fill_in 'username', with: 'marcelomaidden'
-    click_on 'Enter'
+    fill_in 'Username', with: 'marcelomaidden'
+    click_button 'Log in'
   end
 
   context 'Register' do
     it 'Creates a new user' do
       visit '/users/new'
-      fill_in 'user_name', with: 'Marcelo'
-      fill_in 'user_username', with: 'marcelomaidden'
-      click_on('Create User')
+      fill_in 'user_name', with: 'imran'
+      fill_in 'user_username', with: 'imran56444'
+      click_button('Create my account')
 
-      expect(page).to have_text 'User successfully created'
+      expect(page).to have_text 'Welcome to the app!'
     end
   end
 
