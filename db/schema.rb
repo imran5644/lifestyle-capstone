@@ -12,9 +12,12 @@
 
 ActiveRecord::Schema.define(version: 2021_03_05_215228) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "article_categories", force: :cascade do |t|
-    t.integer "article_id", null: false
-    t.integer "category_id", null: false
+    t.bigint "article_id", null: false
+    t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["article_id"], name: "index_article_categories_on_article_id"
@@ -45,8 +48,8 @@ ActiveRecord::Schema.define(version: 2021_03_05_215228) do
   end
 
   create_table "votes", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "article_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "article_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["article_id"], name: "index_votes_on_article_id"
