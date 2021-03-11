@@ -5,7 +5,7 @@ People can create their own articles and they have a page that suggests articles
 
 Built with Ruby on Rails framework 
 
-![screenshot](./docs/screenshot.png)
+![screenshot](./docs/Screenshot.png)
 
 ## Built With
 
