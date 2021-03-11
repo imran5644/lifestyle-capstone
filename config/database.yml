@@ -4,17 +4,20 @@ default: &default
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
-  username: postgres
-  password: 9419196
+  
 
 development:
   <<: *default
   database: "development_lifestyle-capstone"
-
+  username: postgres
+  password: 9419196
 test:
   <<: *default
   database: "test_lifestyle-capstone"
-
+  username: postgres
+  password: 9419196
 production:
   <<: *default
   database: "production_lifestyle-capstone"
+  username: lifestyle-capstone
+  password: <%= ENV['LIFESTYLE_CAPSTONE_DATABASE_PASSWORD'] %>
