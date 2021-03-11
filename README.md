@@ -15,7 +15,7 @@ Built with Ruby on Rails framework
 
 ## Live Demo
 
-[Lifestyle articles]( )
+[Lifestyle articles](https://quiet-refuge-35992.herokuapp.com/)
 
 
 ## Getting Started
@@ -34,9 +34,13 @@ To get a local copy up and running follow these simple example steps.
 Ruby: 2.6.3
 Rails: 5.2.3
 
+### In Case Of Windows run this command
+bundle exec rake webpacker:install
+
+
 ### Setup
 
-Instal gems with:
+Install gems with:
 
 ```
    bundle install
@@ -71,7 +75,7 @@ Open `http://localhost:3000/` in your browser.
 
 In order to deploy this app to Heroku follow the steps below
 
-Install the Heroku CLI available [here]()
+Install the Heroku CLI available [here](https://devcenter.heroku.com/articles/heroku-cli)
 
 After that type the command to create the app and add the heroku repository to your project
 
