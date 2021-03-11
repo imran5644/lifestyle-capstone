@@ -6,7 +6,6 @@ module ArticlesHelper
     return article if article.author_id.to_i == params[:user_id].to_i
   end
 
-  
   def article_owner?(article)
     return 'd-flex' if !session[:current_user].nil? && !article.nil? &&
                        session[:current_user]['id'] == article.author.id
