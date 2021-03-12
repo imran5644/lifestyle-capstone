@@ -9,6 +9,12 @@ class ArticlesController < ApplicationController
     @article = Article.new
   end
 
+  def edit
+    return if Article.mine?(params[:id], session[:current_user]['id'])
+
+    redirect_to root_path, notice: 'User is not allowed to edit this article'
+  end
+
   def create
     @article = Article.new(title: article_params['title'], text: article_params['text'],
                            author_id: current_user.id, image: article_params['image'])
@@ -79,8 +85,11 @@ class ArticlesController < ApplicationController
 
     @category = Category.find(params[:category_id])
     @articles = @category.articles.most_recents.includes([:author])
-    redirect_to root_path, notice: 'There are no articles on this category yet' if @articles.blank?
-    render 'categories/articles' unless @articles.blank?
+    if @articles.blank?
+      redirect_to root_path, notice: 'There are no articles on this category yet'
+    else
+      render 'categories/articles'
+    end
   end
 
   def article_params
@@ -95,7 +104,15 @@ class ArticlesController < ApplicationController
     @categories = Category.all.order(:name)
   end
 
+  def validate_categories
+    if article_params[:categories][0].blank?
+      redirect_to articles_path, notice: "Article not saved. Please add a category" unless article_params[:categories][1]
+    end
+  end
+
   def find_article
+    return Article.search(search_params[:title])  if params[:id] == 'search'
+    
     @article = Article.find(params[:id])
     find_categories
   end
@@ -113,12 +130,5 @@ class ArticlesController < ApplicationController
     end
 
     redirect_to articles_path, notice: error if error.any?
-  end
-
-  def mine?
-    @article = Article.find(params[:id])
-    return false unless @article.author.id != session[:current_user]['id']
-
-    redirect_to root_path, notice: 'User is not allowed to edit this article'
   end
 end
