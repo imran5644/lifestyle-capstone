@@ -84,10 +84,12 @@
 .category-articles {
   grid-template-columns: repeat(2, 1fr);
   overflow: hidden;
+  min-height: 100vh;
 }
 
 .articles li {
   border-bottom: 3px solid yellow;
+  z-index: 1000;
 }
 
 .category-articles li {

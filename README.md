@@ -46,9 +46,11 @@ Install gems with:
    bundle install
 ```
 
-### Install yarn
+### Install Yarn Packages
 
-Add yarn install --check-files
+```
+   yarn install --check-files
+```
 
 
 Setup database with:

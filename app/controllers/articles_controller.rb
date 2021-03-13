@@ -10,7 +10,7 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    return if Article.mine?(params[:id], session[:current_user]['id'])
+    return if Article.mine?(params[:id], current_user)
 
     redirect_to root_path, notice: 'User is not allowed to edit this article'
   end
@@ -105,14 +105,13 @@ class ArticlesController < ApplicationController
   end
 
   def validate_categories
-    if article_params[:categories][0].blank?
-      redirect_to articles_path, notice: "Article not saved. Please add a category" unless article_params[:categories][1]
-    end
+    return unless article_params[:categories][0].blank? && !(article_params[:categories][1])
+
+    redirect_to articles_path,
+                notice: 'Article not saved. Please add a category'
   end
 
   def find_article
-    return Article.search(search_params[:title])  if params[:id] == 'search'
-    
     @article = Article.find(params[:id])
     find_categories
   end
