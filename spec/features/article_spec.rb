@@ -1,5 +1,3 @@
-# rubocop:disable Metrics/BlockLength
-
 require 'rails_helper'
 
 RSpec.feature 'Articles', type: :feature do
@@ -34,18 +32,5 @@ RSpec.feature 'Articles', type: :feature do
 
       expect(page).to have_text "can't be blank"
     end
-
-    it 'Creates an article when all fields were filled' do
-      login
-      visit new_article_path
-      fill_in 'article_title', with: 'My first article'
-      fill_in 'article_text', with: 'This article was made to test if an article is valid'
-      fill_in 'article_image', with: "Images' url"
-      click_on 'Create Article'
-
-      expect(page).to have_text 'Article successfully created'
-    end
   end
 end
-
-# rubocop:enable Metrics/BlockLength
