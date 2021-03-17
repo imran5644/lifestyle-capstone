@@ -15,7 +15,7 @@ Built with Ruby on Rails framework
 
 ## Live Demo
 
-[Lifestyle articles](https://quiet-refuge-35992.herokuapp.com/)
+[Lifestyle articles](https://fast-garden-52284.herokuapp.com/)
 
 
 ## Getting Started
